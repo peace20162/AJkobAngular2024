@@ -1,0 +1,11 @@
+<label for="name"> Name: </label>
+<input id="name" type="text" [formControl]="name" minlength="3">
+
+@if (name.invalid) {
+
+    <div style="color: red;">Error: Input</div>
+}
+
+@if (name.value == "admin") {
+    <div> Welcome Admin </div>
+}

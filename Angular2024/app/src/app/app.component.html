@@ -1,0 +1,47 @@
+<!-- <h1>Welcome to Angular</h1>
+<h2>Admin Checking Message :</h2>
+@if ((isAdmin)) {
+  <div>You are Admin</div>
+}
+@else {
+  <div>You are User</div>
+}
+
+<h2>User List :</h2>
+<ul>
+  @for(user of users; track $index){
+    <li>{{$index}}:{{user}}</li>
+  }
+</ul>
+
+<h2>Form Binding Example :</h2>
+<app-employee></app-employee>
+
+
+<h2>Input & Variable Binding :</h2>
+<div>First name = <input [(ngModel)]="fname"></div>
+<div>Last name = <input [(ngModel)]="lname"></div>
+<div> {{fname}} {{lname}} </div>
+
+<h2>Toggle& Checkbox Binding  :</h2>
+<div (click)="toggle()"> 
+  <input type="checkbox" [(ngModel)] = "checked" />
+  click here for toggle 
+</div>
+
+<h2>Button Binding :</h2>
+<button (click)="myFunction()">show alert</button>
+ -->
+
+ <!-- <app-employee [fullName]="fullName"></app-employee> -->
+
+ <h1>Angular Router App</h1>
+ <nav>
+  <ul>
+    <li><a routerLink="/firstPage/10">First Page</a></li>
+    <li><a routerLink="/secondPage">Second Page</a></li>
+  </ul>
+ </nav>
+
+ <router-outlet></router-outlet>
+ 
