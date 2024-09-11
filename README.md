@@ -1,2 +1,2 @@
-#AJkob Angular Cours\n
-This is angular , express.js and prisma tutorial
+# AJkob Angular Course
+  This is angular , express.js and prisma tutorial
