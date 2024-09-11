@@ -35,6 +35,24 @@ app.post('/book/createManual', async(req,res)=>{
   });
   res.send({result:result});
 })
+app.put('/book/update/:id',async (req, res)=>{
+  try{
+    await prismaClient.book.update({
+      data:{
+        isbn: '10022',
+        name: 'test update',
+        price: 900
+      },
+      where:{
+        id: parseInt(req.params.id)
+      }
+    });
+    res.send({message:'success'});
+  }catch(e){
+    res.status(500).send({ error: e})
+  }
+})
+
 
 app.get('/',(req, res)=>{
     res.send("hello world");
@@ -55,9 +73,7 @@ app.post('/hello',(req, res)=>{
 app.patch('/',(req, res)=>{
   res.send("hello world");
 })
-app.put('/myPut',(req, res)=>{
-  res.send(req.body);
-})
+
 app.delete('/myDelete/:id',(req, res)=>{
   res.send(`My Delete ID = ${req.params.id}`);
 })
@@ -66,9 +82,12 @@ app.delete('/myDelete/:id',(req, res)=>{
 
 
 
-console.log(`app start at port ${PORT}`);
 
-app.listen(3001);
+
+app.listen(3001,()=>{
+  console.log(`app start at port ${PORT}\n
+link: http://localhost:${PORT}`);
+});
 
 // // server.js
 // const nodeHttp = require('node:http');
