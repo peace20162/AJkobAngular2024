@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "express-fileupload": "^1.5.1",
+    "pg": "^8.13.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {
+    "@types/node": "^22.5.5",
+    "prisma": "^5.19.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
