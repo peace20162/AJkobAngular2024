@@ -1,6 +1,6 @@
 <div class="wrapper">
 
-  @if (token != ''){
+  @if (token){
   <!-- Navbar -->
   <app-navbar></app-navbar>
   <!-- Main Sidebar Container -->
@@ -14,6 +14,7 @@
   </div>
   } @else {
   <app-sign-in></app-sign-in>
+
   }
 
 

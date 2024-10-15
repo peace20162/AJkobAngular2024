@@ -8,15 +8,28 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
+    @if(name){
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
                 <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block">{{name}}</a>
+                <div class="mt-3">
+                    <button class="btn btn-danger" (click)="signOut()">
+                        <i class="fa fa-times mr-2">              
+                        </i>Sign Out
+                    </button>
+                </div>
             </div>
         </div>
+
+    }@else {
+        <!-- Sidebar user panel (optional) -->
+
+    }
+        
 
         <!-- SidebarSearch Form -->
         <div class="form-inline">
@@ -65,14 +78,38 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                    <a routerLink="/foodType"  class="nav-link">
+                        <i class="material-icons nav-icon">collections_bookmark</i>
                         <p>
-                            Widgets
-                            <span class="right badge badge-danger">New</span>
+                            Food Type                            
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a routerLink="/foodSize"  class="nav-link">
+                        <i class="material-icons nav-icon">rice_bowl</i>
+                        <p>
+                            Food Size                           
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/taste"  class="nav-link">
+                        <i class="fa-regular fa-face-grin-tongue-squint nav-icon"></i>
+                        <p>
+                            Taste                        
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/food"  class="nav-link">
+                        <i class="material-icons nav-icon">fastfood</i>
+                        <p>
+                            Food and Beverages                   
+                        </p>
+                    </a>
+                </li>
+                
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-copy"></i>

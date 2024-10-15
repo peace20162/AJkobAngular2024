@@ -12,3 +12,52 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id Int @id() @default(autoincrement())
+  name String
+  level String // admin, employee
+  username String @unique 
+  password String
+  status String @default("active") // active, inactive 
+
+}
+
+model FoodType{
+  id Int @id() @default(autoincrement())
+  name String
+  remark String?
+  status String @default("active") // active, inactive
+  FoodSizes FoodSize[]
+  Taste Taste[]
+  Food Food[]
+}
+
+model FoodSize{
+  id Int @id() @default(autoincrement())
+  name String
+  remark String?
+  moneyAdded Int?    
+  status String @default("active") // active, inactive
+  foodTypeId Int
+  FoodType FoodType @relation(fields: [foodTypeId], references: [id])
+}
+model Taste{
+  id Int @id() @default(autoincrement())
+  name String
+  remark String?
+  status String @default("active") // active, inactive
+  foodTypeId Int
+  FoodType FoodType @relation(fields: [foodTypeId], references: [id])
+}
+model Food{
+  id Int @id() @default(autoincrement())
+  foodTypeId Int
+  name String
+  price Int
+  remark String
+  image String
+  foodType String @default("food") // food, drink
+  status String @default("active") // active, inactive
+  FoodType FoodType @relation(fields: [foodTypeId], references: [id])
+}

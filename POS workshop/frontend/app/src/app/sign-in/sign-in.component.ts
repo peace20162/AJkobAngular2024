@@ -18,6 +18,12 @@ export class SignInComponent {
   constructor (private http: HttpClient) {
     
   };
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.token = localStorage.getItem('angular_token')!;
+  }
   signIn(){
     if(this.username ==''|| this.password==''){
       Swal.fire({
@@ -35,7 +41,7 @@ export class SignInComponent {
         .subscribe((res:any)=>{
           this.token = res.token
           localStorage.setItem('angular_token',this.token)
-          localStorage.setItem('angular_username',this.username)
+          localStorage.setItem('angular_username', res.name)
           location.reload()
         },
         (error:any)=>{
