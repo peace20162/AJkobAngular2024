@@ -1,0 +1,50 @@
+<div class="card mt-3">
+  <div class="card-header">PDF Reader</div>
+  <div class="card-body">
+    <div class="flex-container-column">
+      <input type="text" [(ngModel)]="searchtext" placeholder="Enter text to search" />
+      <button #searchButton class="btn btn-primary" id="searchButton" (click)="search()">Search</button>
+      <div>
+
+        <input type="checkbox" id="highlightAllCheckbox" [(ngModel)]="highlightAll" (change)="search()">highlight all
+
+
+        <input type="checkbox" [(ngModel)]="matchCase" (change)="search()">match case
+
+
+        <input type="checkbox" [(ngModel)]="wholeWord" (change)="search()" [disabled]="matchRegExp">whole word
+
+
+        <input type="checkbox" [(ngModel)]="matchDiacritics" (change)="search()" [disabled]="matchRegExp">match
+        diacritics
+
+
+
+        <input type="checkbox" class="margin" [(ngModel)]="multiple" (change)="search()"
+          [disabled]="matchRegExp">multiple words (separated by space)
+
+
+        <input type="checkbox" class="margin" [(ngModel)]="matchRegExp" (change)="search()">match regular expression
+
+
+      </div>
+      <div class="flex-column mt-3">
+        <button class="btn btn-primary mr-2" (click)="findNext(false)">Next</button>
+        <button class="btn btn-primary mr-2" (click)="findPrevious(false)">Previous</button>
+      </div>
+
+      <small class="row">
+        @if (totalMatches && totalMatches > 0) {
+        <span style="margin-left: 24px">Result {{ currentMatchNumber }} of {{ totalMatches }} </span>
+        }
+      </small>
+      <div class="pdf-viewer-container mt-3">
+        <ngx-extended-pdf-viewer [src]="src" (updateFindMatchesCount)="updateFindMatchesCount($event)"
+          (updateFindState)="updateFindState($event)" backgroundColor="#ffffff" [height]="'90vh'" [handTool]="false"
+          [showHandToolButton]="true" [page]="1" [showFindRegexp]="true">
+        </ngx-extended-pdf-viewer>
+
+      </div>
+    </div>
+  </div>
+</div>

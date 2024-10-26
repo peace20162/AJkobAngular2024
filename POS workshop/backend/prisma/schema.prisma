@@ -60,4 +60,15 @@ model Food{
   foodType String @default("food") // food, drink
   status String @default("active") // active, inactive
   FoodType FoodType @relation(fields: [foodTypeId], references: [id])
+  SaleTemp SaleTemp[]
+}
+
+model SaleTemp {
+  id Int @id() @default(autoincrement())
+  foodId Int
+  quantity Int
+  price Int
+  tableNo Int
+  userId Int
+  Food Food @relation(fields: [foodId], references: [id])
 }

@@ -1,0 +1,63 @@
+<div class="input-group">
+    <span class="input-group-text bg-dark text-white">โต๊ะ</span>
+    <input type="number" class="form-control" style="width: 100px" [(ngModel)]="tableNo" />
+</div>
+
+
+<div class="card mt-3">
+    <div class="card-header">
+        Food and Beverages Sale
+    </div>
+    <div class="card-body">
+        <button class="btn btn-primary me-2" (click)="filterFoodType('food')">
+            <i class="fa fa-burger me-2"></i>Food
+        </button>
+        <button class="btn btn-primary me-2" (click)="filterFoodType('beverage')">
+            <i class="fa fa-mug-hot me-2"></i>Beverages
+        </button>
+        <button class="btn btn-primary me-2" (click)="fetchData()">
+            <i class="fa fa-book-open me-2"></i>All
+        </button>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-9">
+                    <div class="row mt-3">
+                        @for(item of foods;track $index){
+                        <div class="col-xl-2 col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="card">
+                                <img src="{{serverPath}}/uploads/{{item.image}}" class="card-image" height="100px"
+                                    (click)="saveToSaleTemp(item)">
+                                <div class="card-body">
+                                    <div class="h4">{{item.name}}</div>
+                                    <div class="text-success h5 text-center">{{item.price}}</div>
+
+                                </div>
+                            </div>
+                        </div>
+                        }
+                    </div>
+
+
+                </div>
+                <div class="col-3">
+                    <div class="mb-3">Selected item</div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div>
+                                <button class="btn btn-primary">
+                                    <i class="fa fa-minus me-2"></i>Remove All from Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+    
+            </div>
+
+            
+        </div>
+
+    </div>
+</div>

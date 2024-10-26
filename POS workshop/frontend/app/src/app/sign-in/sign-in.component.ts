@@ -42,6 +42,7 @@ export class SignInComponent {
           this.token = res.token
           localStorage.setItem('angular_token',this.token)
           localStorage.setItem('angular_username', res.name)
+          localStorage.setItem('angular_id', res.id)
           location.reload()
         },
         (error:any)=>{

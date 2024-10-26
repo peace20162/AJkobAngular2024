@@ -3,13 +3,14 @@ import { RouterModule,RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SignInComponent } from "./sign-in/sign-in.component";
+import { ExamplePdfViewerComponent } from "./example-pdf-viewer/example-pdf-viewer.component";
 
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterModule,RouterOutlet, NavbarComponent, SidebarComponent, SignInComponent],
+  imports: [RouterModule, RouterOutlet, NavbarComponent, SidebarComponent, SignInComponent, ExamplePdfViewerComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

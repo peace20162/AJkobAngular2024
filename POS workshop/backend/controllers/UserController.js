@@ -25,7 +25,7 @@ module.exports = {
             if (checkAuth !== null) {
                 const key = process.env.SECRET_KEY;
                 const token = jwt.sign(checkAuth, key, { expiresIn: '30d' });
-                return res.send({ token: token, name: checkAuth.name });
+                return res.send({ token: token, name: checkAuth.name, id:checkAuth.id});
             }
             return res.status(401).send({ message: 'Unauthorized' });
         } catch (e) {

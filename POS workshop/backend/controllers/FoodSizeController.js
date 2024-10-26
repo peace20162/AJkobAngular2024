@@ -78,7 +78,7 @@ module.exports = {
           const rows = await prisma.foodSize.findMany({
             where: {
               foodTypeId: parseInt(req.params.foodTypeId),
-              status: "use",
+              status: "active",
             },
             orderBy: {
               moneyAdded: "asc",
